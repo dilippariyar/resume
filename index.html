@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilip Pariyar - Portfolio</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth; /* For smooth navigation from menu links */
+        }
+
+        /* Container for the portfolio */
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 80px; /* Add padding to prevent overlap with fixed menu */
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001; /* Ensure it's above other content */
+        }
+
+        .menu-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: flex; /* For centering icon if needed */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 24px; /* Width of the icon lines */
+            height: 20px; /* Height of the icon area */
+        }
+
+        .hamburger-icon .bar {
+            display: block;
+            width: 100%;
+            height: 3px; /* Thickness of the lines */
+            background-color: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Hamburger animation to X */
+        .menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg); /* Adjusted for 3px bar height */
+        }
+
+        .menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg); /* Adjusted for 3px bar height */
+        }
+
+        .menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0; /* Space from button */
+            background: rgba(40, 40, 40, 0.95); /* Darker, slightly transparent background */
+            border-radius: 8px;
+            position: absolute;
+            top: 100%; /* Position below the button */
+            right: 0;
+            width: 220px; /* Width of the dropdown */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        }
+
+        .menu-links.open {
+            max-height: 500px; /* Adjust if more links are added */
+            padding: 10px 0; /* Vertical padding when open */
+        }
+
+        .menu-links li a {
+            display: block;
+            padding: 12px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .menu-links li a:hover,
+        .menu-links li a:focus { /* Added focus style for accessibility */
+            background-color: #ff0; /* Yellow accent from your theme */
+            color: #333; /* Dark text on yellow */
+        }
+
+
+        /* Profile Image Section (New) */
+        .profile-image-container {
+            text-align: center;
+            margin-bottom: 20px; /* Space below profile image */
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Circular image */
+            border: 4px solid #fff; /* White border */
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.5); /* Yellow glow, matching theme */
+            object-fit: cover; /* Ensures image covers the area well */
+            animation: fadeInProfile 2s ease-in-out;
+        }
+        
+        @keyframes fadeInProfile { /* Specific fade-in for profile picture */
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 40px 20px; /* Adjusted padding due to profile image above */
+            background: linear-gradient(135deg, #ff0099, #493240);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
+            }
+            100% {
+                text-shadow: 0 0 20px #00f, 0 0 40px #00f, 0 0 60px #00f;
+            }
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+         @keyframes fadeIn { /* Added generic fadeIn if used elsewhere */
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff0;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #00f;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-card ul li {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            animation: slideIn 1.5s ease-in-out; /* Reusing existing animation */
+        }
+
+        .experience h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff0; /* Consistent with other section titles */
+        }
+
+        .experience p {
+            font-size: 1.1rem;
+        }
+
+        /* Projects Section (New) */
+        .projects {
+            background: rgba(255, 255, 255, 0.1); /* Consistent styling */
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            animation: slideIn 1.5s ease-in-out; /* Reusing existing animation */
+        }
+
+        .projects h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff0; /* Consistent section title color */
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.05); /* Slightly different for depth */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            /* animation: fadeIn 1.8s ease-in-out; */ /* Optional: item-level animation */
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-item h3 {
+            font-size: 1.5rem;
+            color: #00f; /* Consistent with skill card titles */
+            margin-bottom: 10px;
+        }
+
+        .project-item p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 18px;
+            background: #ff0; /* Yellow accent */
+            color: #333; /* Dark text for contrast */
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .project-link:hover {
+            background: #ffd700; /* Darker yellow on hover */
+            transform: translateY(-2px);
+        }
+
+
+        /* Download Resume Button */
+        .download-resume {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .download-resume a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #00f, #ff0);
+            color: #000;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            animation: pulseButton 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseButton {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Footer Section */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            margin: 0 0 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: #ff0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+            }
+            .about h2, .skills h2, .experience h2, .projects h2 {
+                font-size: 1.8rem;
+            }
+            .skill-card {
+                width: calc(50% - 20px); /* Two cards per row */
+            }
+             .portfolio-container {
+                padding-top: 70px; /* Adjust for smaller screens if menu feels too close */
+            }
+            .hamburger-menu {
+                top: 15px;
+                right: 15px;
+            }
+            .menu-toggle {
+                padding: 8px;
+            }
+            .hamburger-icon {
+                width: 20px;
+                height: 18px;
+            }
+             .hamburger-icon .bar {
+                height: 2px;
+            }
+            .menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+        }
+         @media (max-width: 480px) {
+            .skill-card {
+                width: 100%; /* One card per row */
+            }
+             .header h1 {
+                font-size: 2rem;
+            }
+             .project-item {
+                padding: 15px;
+            }
+            .project-item h3 {
+                font-size: 1.3rem;
+            }
+         }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="hamburger-menu" aria-label="Main Navigation">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="menu-links-main" aria-label="Toggle navigation menu">
+            <span class="hamburger-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
+        </button>
+        <ul class="menu-links" id="menu-links-main">
+            <li><a href="#profile-header">Home</a></li> <li><a href="#about-section">About</a></li>
+            <li><a href="#skills-section">Skills</a></li>
+            <li><a href="#experience-section">Experience</a></li>
+            <li><a href="#projects-section">Projects</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="portfolio-container">
+        <div class="header" id="profile-header"> <div class="profile-image-container">
+                <img src="https://dilippariyar.github.io/portfolio/dilip.jpg" alt="Dilip Pariyar's Profile picture" class="profile-picture">
+                </div>
+            <h1>Dilip Pariyar</h1>
+            <p>Digital Marketing & Web Accessibility Professional</p>
+        </div>
+
+        <div class="about" id="about-section"> <h2>About Me</h2>
+            <p>
+                I am a passionate digital marketing and web accessibility professional with a Bachelor of Management Studies in Marketing from Shankar Narayan College, Mumbai University. I hold certifications in Fundamentals of Digital Marketing (Google), E-commerce and Digital Marketing (Coursera), and have completed courses in Introduction to Programming and Advanced Excel by Vision Aid. With 5 months of experience in SEO, I bring a blend of technical and digital marketing expertise to the table.
+            </p>
+        </div>
+
+        <div class="skills" id="skills-section"> <div class="skill-card">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript (Basics)</li>
+                    <li>Python (Basics)</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Digital Marketing</h3>
+                <ul>
+                    <li>Advanced SEO</li>
+                    <li>SEM (Search Engine Marketing)</li>
+                    <li>Email Marketing</li>
+                    <li>Social Media Marketing</li>
+                    <li>Content Marketing</li>
+                    <li>Google Analytics</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience" id="experience-section"> <h2>Experience</h2>
+            <p>
+                <strong>SEO Intern</strong> - 5 months of hands-on experience in optimizing websites for search engines, conducting keyword research, and improving organic search rankings.
+            </p>
+        </div>
+
+        <div class="projects" id="projects-section"> <h2>My Projects</h2>
+            <div class="project-item">
+                <h3>Portfolio Website</h3>
+                <p>Designed and developed this personal portfolio website to showcase my skills, experience, and projects. Focused on a clean, responsive design with subtle animations.</p>
+                <a href="#" target="_blank" class="project-link" aria-label="View Portfolio Website Project">View Details</a>
+            </div>
+            <div class="project-item">
+                <h3>E-commerce SEO Strategy</h3>
+                <p>Developed a comprehensive SEO strategy for a mock e-commerce client, including keyword research, on-page optimization, and content planning to improve organic visibility.</p>
+                <a href="#" target="_blank" class="project-link" aria-label="View E-commerce SEO Strategy Project">View Case Study</a>
+            </div>
+            <div class="project-item">
+                <h3>Digital Marketing Campaign Analysis</h3>
+                <p>Analyzed the performance of a sample digital marketing campaign using mock data, identifying key metrics, trends, and providing recommendations for future improvements.</p>
+                <a href="#" target="_blank" class="project-link" aria-label="View Campaign Analysis Project">Read Analysis</a>
+            </div>
+        </div>
+
+
+        <div class="download-resume" role="region" aria-label="Download Resume">
+            <a href="Dilip_Resume.pdf" download="Dilip_Pariyar_Resume.pdf">Download Resume</a>
+            </div>
+
+        <div class="footer" id="contact-section"> 
+            <p>Contact: dilippariyar06@gmail.com | Phone: +91 98765 43210</p>
+            <div class="social-icons" role="region" aria-label="social media links">
+                <a href="mailto:dilippariyar06@gmail.com" target="_blank" title="Email" aria-label="Send an email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+919876543210" target="_blank" title="Phone" aria-label="Call Dilip Pariyar"><i class="fas fa-phone"></i></a>
+                <a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" title="LinkedIn" aria-label="Dilip Pariyar's LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.github.com/dilippariyar" target="_blank" title="GitHub" aria-label="Dilip Pariyar's GitHub Profile"><i class="fab fa-github"></i></a>
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuLinks = document.getElementById('menu-links-main'); // Using ID selector
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            menuLinks.classList.toggle('open');
+        });
+
+        // Close menu when a link is clicked
+        menuLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the menu is open before trying to close it
+                if (menuLinks.classList.contains('open')) {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuLinks.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
