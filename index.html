@@ -3,550 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dilip Pariyar - Portfolio</title>
+    <title>Dilip Pariyar - Resume </title>
+    
+    <meta name="description" content="Dilip Pariyar's professional Resume: Digital Marketing, Web Accessibility, SEO, and E-commerce expert. Explore my projects, skills, and experience.">
+    <meta name="keywords" content="Dilip Pariyar, Digital Marketing, Web Accessibility, WCAG, ARIA, SEO, E-commerce, Portfolio, Mumbai, India, Google Analytics, SEM, content marketing, social media marketing, freelancer">
+    <meta name="author" content="Dilip Pariyar">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://dilippariyar.github.io/resume">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph & Twitter Cards -->
+    <meta property="og:title" content="Dilip Pariyar - Digital Marketing & Web Accessibility Resume">
+    <meta property="og:description" content="My professional resume showcasing skills in Digital Marketing, Web Accessibility, SEO, and more.">
+    <meta property="og:image" content="https://dilippariyar.github.io/resume/images/logo_og.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* General Reset */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #333);
-            color: #fff;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+        /* General Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #0d0d1a; color: #fff; line-height: 1.6; overflow-x: hidden; }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-        html {
-            scroll-behavior: smooth; /* For smooth navigation from menu links */
-        }
-
-        /* Container for the portfolio */
-        .portfolio-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 80px; /* Add padding to prevent overlap with fixed menu */
-        }
-
-        /* Hamburger Menu */
-        .hamburger-menu {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001; /* Ensure it's above other content */
-        }
-
-        .menu-toggle {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            display: flex; /* For centering icon if needed */
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hamburger-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 24px; /* Width of the icon lines */
-            height: 20px; /* Height of the icon area */
-        }
-
-        .hamburger-icon .bar {
-            display: block;
-            width: 100%;
-            height: 3px; /* Thickness of the lines */
-            background-color: #fff;
-            border-radius: 3px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Hamburger animation to X */
-        .menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg); /* Adjusted for 3px bar height */
-        }
-
-        .menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg); /* Adjusted for 3px bar height */
-        }
-
-        .menu-links {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0; /* Space from button */
-            background: rgba(40, 40, 40, 0.95); /* Darker, slightly transparent background */
-            border-radius: 8px;
-            position: absolute;
-            top: 100%; /* Position below the button */
-            right: 0;
-            width: 220px; /* Width of the dropdown */
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-        }
-
-        .menu-links.open {
-            max-height: 500px; /* Adjust if more links are added */
-            padding: 10px 0; /* Vertical padding when open */
-        }
-
-        .menu-links li a {
-            display: block;
-            padding: 12px 20px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-
-        .menu-links li a:hover,
-        .menu-links li a:focus { /* Added focus style for accessibility */
-            background-color: #ff0; /* Yellow accent from your theme */
-            color: #333; /* Dark text on yellow */
-        }
-
-
-        /* Profile Image Section (New) */
-        .profile-image-container {
-            text-align: center;
-            margin-bottom: 20px; /* Space below profile image */
-        }
-
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* Circular image */
-            border: 4px solid #fff; /* White border */
-            box-shadow: 0 0 20px rgba(255, 255, 0, 0.5); /* Yellow glow, matching theme */
-            object-fit: cover; /* Ensures image covers the area well */
-            animation: fadeInProfile 2s ease-in-out;
-        }
+        /* Header & Navigation */
+        .main-header { position: fixed; top: 0; width: 100%; background: rgba(13, 13, 26, 0.85); backdrop-filter: blur(10px); padding: 15px 25px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; z-index: 1002; position: relative; width: 30px; height: 30px; }
+        .nav-toggle .fa-bars, .nav-toggle .fa-times { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
+        .nav-toggle .fa-times { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+        .nav-toggle.active .fa-bars { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+        .nav-toggle.active .fa-times { opacity: 1; transform: translate(-50%, -50%) rotate(0); }
         
-        @keyframes fadeInProfile { /* Specific fade-in for profile picture */
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+        .main-nav { display: flex; }
+        .main-nav ul { list-style: none; display: flex; gap: 30px; }
+        .main-nav ul li a { color: #fff; text-decoration: none; font-size: 1rem; text-transform: uppercase; padding: 5px 0; position: relative; }
+        .main-nav ul li a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #00e6ff; transition: width 0.3s ease; }
+        .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
+        .main-nav ul li a:hover, .main-nav ul li a.active { color: #00e6ff; }
 
+        /* Hero Section */
+        #intro { min-height: 100vh; padding-top: 100px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+        #particles-js { position: absolute; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+        .intro-content { position: relative; z-index: 2; }
+        .profile-image-container { margin-bottom: 30px; }
+        .profile-image-container img { width: 280px; height: 280px; border-radius: 50%; border: 8px solid #00e6ff; box-shadow: 0 0 35px rgba(0, 230, 255, 0.7); object-fit: cover; }
+        #intro h1 { font-size: 4rem; font-weight: 700; background: linear-gradient(45deg, #00e6ff, #ff00cc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        #intro .subtitle { font-size: 1.4rem; color: #d1d1d1; margin: 15px 0 30px; }
+        .cta-button { display: inline-block; padding: 14px 35px; color: #0d0d1a; background: #00e6ff; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; }
+        .cta-button:hover { background: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(0, 230, 255, 0.5); }
 
-        /* Header Section */
-        .header {
-            text-align: center;
-            padding: 40px 20px; /* Adjusted padding due to profile image above */
-            background: linear-gradient(135deg, #ff0099, #493240);
-            border-radius: 15px;
-            margin-bottom: 40px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            margin: 0;
-            animation: textGlow 2s infinite alternate;
-        }
-
-        @keyframes textGlow {
-            0% {
-                text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
-            }
-            100% {
-                text-shadow: 0 0 20px #00f, 0 0 40px #00f, 0 0 60px #00f;
-            }
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            margin: 10px 0 0;
-        }
+        /* General Section Styles */
+        .content-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.8rem; margin-bottom: 50px; text-align: center; background: linear-gradient(45deg, #ff00cc, #00e6ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
         /* About Section */
-        .about {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            animation: slideIn 1.5s ease-in-out;
-        }
-
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-         @keyframes fadeIn { /* Added generic fadeIn if used elsewhere */
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-
-        .about h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #ff0;
-        }
-
-        .about p {
-            font-size: 1.1rem;
-        }
+        #about p { font-size: 1.1rem; color: #c0c0c0; text-align: center; max-width: 800px; margin: 0 auto; }
 
         /* Skills Section */
-        .skills {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .skill-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            width: 200px;
-            margin: 10px;
-            text-align: center;
-            animation: float 4s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .skill-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #00f;
-        }
-
-        .skill-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .skill-card ul li {
-            font-size: 1rem;
-            margin: 5px 0;
-        }
+        .skills-group { margin-bottom: 50px; }
+        .skills-group-title { font-size: 1.8rem; color: #00e6ff; text-align: center; margin-bottom: 30px; }
+        .skills-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; padding: 0; }
+        .skill-item { text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+        .skill-item:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 8px 15px rgba(0, 230, 255, 0.2); }
+        .skill-item .tooltip { visibility: hidden; opacity: 0; width: max-content; max-width: 220px; background-color: #00e6ff; color: #0d0d1a; text-align: center; border-radius: 6px; padding: 8px 12px; position: absolute; z-index: 1; bottom: 125%; left: 50%; transform: translateX(-50%); transition: opacity 0.3s; font-size: 0.9rem; font-weight: 500; }
+        .skill-item .tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: #00e6ff transparent transparent transparent; }
+        .skill-item:hover .tooltip { visibility: visible; opacity: 1; }
+        .skill-item i { font-size: 3rem; color: #00e6ff; margin-bottom: 15px; }
+        .skill-item span { display: block; font-size: 1.1rem; font-weight: 500; }
 
         /* Experience Section */
-        .experience {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            animation: slideIn 1.5s ease-in-out; /* Reusing existing animation */
-        }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: linear-gradient(to bottom, #00e6ff, #ff00cc); transform: translateX(-50%); }
+        .timeline-item { position: relative; margin: 50px 0; width: 50%; padding: 10px 40px; }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-item::after { content: ''; position: absolute; width: 25px; height: 25px; right: -13px; background-color: #ff00cc; border: 4px solid #0d0d1a; top: 15px; border-radius: 50%; z-index: 1; }
+        .timeline-item:nth-child(even)::after { left: -12px; }
+        .timeline-content { padding: 20px 30px; background: rgba(255, 255, 255, 0.08); position: relative; border-radius: 10px; }
+        .timeline-content h3 { font-size: 1.4rem; color: #00e6ff; margin-bottom: 5px; }
+        .timeline-date { font-size: 0.9rem; color: #888; margin-bottom: 10px; display: block; }
+        .timeline-content p { font-size: 0.95rem; color: #b0b0b0; }
 
-        .experience h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #ff0; /* Consistent with other section titles */
-        }
+        /* Projects Section */
+        .projects-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0; }
+        .project-card { background: rgba(255, 255, 255, 0.07); border-radius: 15px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0, 230, 255, 0.2); }
+        .project-image { width: 100%; height: 200px; object-fit: cover; background-color: #334; }
+        .project-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-content h3 { margin: 0 0 10px; font-size: 1.4rem; color: #00e6ff; }
+        .project-content p { color: #b0b0b0; font-size: 0.95rem; flex-grow: 1; margin-bottom: 20px; }
+        .project-links a { color: #00e6ff; text-decoration: none; margin-right: 20px; font-weight: 500; }
+        .project-links a:hover { color: #ff00cc; }
+        .project-links i { margin-right: 5px; }
 
-        .experience p {
-            font-size: 1.1rem;
-        }
+        /* Footer */
+        .main-footer { padding: 60px 20px 30px; background: #12121f; text-align: center; }
+        .footer-title { font-size: 2.5rem; color: #fff; margin-bottom: 30px; }
+        .social-icons { list-style: none; padding: 0; display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; }
+        .social-icons li a { color: #fff; font-size: 1.8rem; transition: all 0.3s ease; }
+        .social-icons li a:hover { transform: translateY(-5px) scale(1.1); color: #00e6ff; text-shadow: 0 0 15px #00e6ff; }
+        .copyright { font-size: 0.9rem; color: #aaa; }
 
-        /* Projects Section (New) */
-        .projects {
-            background: rgba(255, 255, 255, 0.1); /* Consistent styling */
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 40px;
-            animation: slideIn 1.5s ease-in-out; /* Reusing existing animation */
-        }
-
-        .projects h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #ff0; /* Consistent section title color */
-        }
-
-        .project-item {
-            background: rgba(255, 255, 255, 0.05); /* Slightly different for depth */
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            /* animation: fadeIn 1.8s ease-in-out; */ /* Optional: item-level animation */
-        }
-
-        .project-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .project-item h3 {
-            font-size: 1.5rem;
-            color: #00f; /* Consistent with skill card titles */
-            margin-bottom: 10px;
-        }
-
-        .project-item p {
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .project-link {
-            display: inline-block;
-            padding: 8px 18px;
-            background: #ff0; /* Yellow accent */
-            color: #333; /* Dark text for contrast */
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .project-link:hover {
-            background: #ffd700; /* Darker yellow on hover */
-            transform: translateY(-2px);
-        }
-
-
-        /* Download Resume Button */
-        .download-resume {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .download-resume a {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #00f, #ff0);
-            color: #000;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            animation: pulseButton 2s infinite ease-in-out;
-        }
-
-        @keyframes pulseButton {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* Footer Section */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .footer p {
-            font-size: 1rem;
-            margin: 0 0 10px;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            transform: translateY(-5px);
-            color: #ff0;
-        }
-
-        /* Responsive Adjustments */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            .header p {
-                font-size: 1rem;
-            }
-            .profile-picture {
-                width: 120px;
-                height: 120px;
-            }
-            .about h2, .skills h2, .experience h2, .projects h2 {
-                font-size: 1.8rem;
-            }
-            .skill-card {
-                width: calc(50% - 20px); /* Two cards per row */
-            }
-             .portfolio-container {
-                padding-top: 70px; /* Adjust for smaller screens if menu feels too close */
-            }
-            .hamburger-menu {
-                top: 15px;
-                right: 15px;
-            }
-            .menu-toggle {
-                padding: 8px;
-            }
-            .hamburger-icon {
-                width: 20px;
-                height: 18px;
-            }
-             .hamburger-icon .bar {
-                height: 2px;
-            }
-            .menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-            .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-
+            .main-header { padding: 15px 20px; }
+            .nav-toggle { display: block; }
+            .main-nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(18, 18, 31, 0.98); flex-direction: column; justify-content: center; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
+            .main-nav.active { right: 0; }
+            .main-nav ul { flex-direction: column; }
+            #intro h1 { font-size: 2.8rem; }
+            .timeline::before { left: 30px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::after { left: 18px; }
         }
-         @media (max-width: 480px) {
-            .skill-card {
-                width: 100%; /* One card per row */
-            }
-             .header h1 {
-                font-size: 2rem;
-            }
-             .project-item {
-                padding: 15px;
-            }
-            .project-item h3 {
-                font-size: 1.3rem;
-            }
-         }
-
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <nav class="hamburger-menu" aria-label="Main Navigation">
-        <button class="menu-toggle" aria-expanded="false" aria-controls="menu-links-main" aria-label="Toggle navigation menu">
-            <span class="hamburger-icon">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </span>
+    <header class="main-header" role="banner">
+        <a href="#intro" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
         </button>
-        <ul class="menu-links" id="menu-links-main">
-            <li><a href="#profile-header">Home</a></li> <li><a href="#about-section">About</a></li>
-            <li><a href="#skills-section">Skills</a></li>
-            <li><a href="#experience-section">Experience</a></li>
-            <li><a href="#projects-section">Projects</a></li>
-            <li><a href="#contact-section">Contact</a></li>
-        </ul>
-    </nav>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="#intro" class="active">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="portfolio-container">
-        <div class="header" id="profile-header"> <div class="profile-image-container">
-                <img src="https://dilippariyar.github.io/portfolio/logo.png" alt="website logo" class="profile-picture">
+    <main role="main">
+        <section id="intro" aria-labelledby="main-heading">
+            <div id="particles-js"></div>
+            <div class="intro-content">
+                <div class="profile-image-container">
+                    <img src="https://dilippariyar.github.io/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
                 </div>
-            <h1>Dilip Pariyar</h1>
-            <p>Digital Marketing & Web Accessibility Professional</p>
-        </div>
+                <h1 id="main-heading">Dilip Pariyar</h1>
+                <p class="subtitle">Digital Marketing & Web Accessibility Professional</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </section>
 
-        <div class="about" id="about-section"> <h2>About Me</h2>
-            <p>
-                I am a passionate digital marketing and web accessibility professional with a Bachelor of Management Studies in Marketing from Shankar Narayan College, Mumbai University. I hold certifications in Fundamentals of Digital Marketing (Google), E-commerce and Digital Marketing (Coursera), and have completed courses in Introduction to Programming and Advanced Excel by Vision Aid. With 5 months of experience in SEO, I bring a blend of technical and digital marketing expertise to the table.
-            </p>
-        </div>
+        <section id="about" class="content-section" aria-labelledby="about-title">
+            <h2 class="section-title" id="about-title">About Me</h2>
+<p>
+    I am a passionate professional specializing in **Search Engine Optimization (SEO)** and **web accessibility**, holding a Bachelor of Management Studies in Marketing. My comprehensive SEO expertise covers **on-page, off-page, and technical aspects**—from optimizing crucial elements like **meta tags, Open Graph, Twitter Cards, and Schema markup** for rich results, to managing `robots.txt`, `sitemap.xml`, and **Google Search Console**. Crucially, I am dedicated to crafting truly inclusive digital experiences by rigorously applying **Semantic HTML, ARIA, and WCAG 2.2 principles** (**Perceivable, Operable, Understandable, Robust**), ensuring seamless navigation and understanding for all users, including those relying on screen readers like **NVDA** and **TalkBack**.
+</p>
+        </section>
 
-        <div class="skills" id="skills-section"> <div class="skill-card">
-                <h3>Technical Skills</h3>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript (Basics)</li>
-                    <li>Python (Basics)</li>
+        <section id="skills" class="content-section" aria-labelledby="skills-title">
+            <h2 class="section-title" id="skills-title">My Skills</h2>
+            <div class="skills-group">
+                <h3 class="skills-group-title">Search Engine Optimization (SEO)</h3>
+                <ul class="skills-list">
+                    <li class="skill-item" data-tooltip="On-Page, Off-Page, and Local SEO strategies to improve rankings.">
+                        <i class="fas fa-search"></i>
+                        <span>SEO Strategy</span>
+                        <span class="tooltip">On-Page, Off-Page, and Local SEO strategies to improve rankings.</span>
+                    </li>
+                    <li class="skill-item" data-tooltip="In-depth analysis to find high-value keywords and understand user intent.">
+                        <i class="fas fa-key"></i>
+                        <span>Keyword Research</span>
+                        <span class="tooltip">In-depth analysis to find high-value keywords and understand user intent.</span>
+                    </li>
+                    <li class="skill-item" data-tooltip="Optimizing site structure and speed for search engine crawlers.">
+                        <i class="fas fa-cogs"></i>
+                        <span>Technical SEO</span>
+                        <span class="tooltip">Optimizing site structure and speed for search engine crawlers.</span>
+                    </li>
                 </ul>
             </div>
-            <div class="skill-card">
-                <h3>Digital Marketing</h3>
-                <ul>
-                    <li>Advanced SEO</li>
-                    <li>SEM (Search Engine Marketing)</li>
-                    <li>Email Marketing</li>
-                    <li>Social Media Marketing</li>
-                    <li>Content Marketing</li>
-                    <li>Google Analytics</li>
+            <div class="skills-group">
+                <h3 class="skills-group-title">Web Accessibility</h3>
+                <ul class="skills-list">
+                    <li class="skill-item" data-tooltip="Auditing and implementing WCAG 2.2 guidelines at A, AA, and AAA levels.">
+                        <i class="fab fa-accessible-icon"></i>
+                        <span>WCAG 2.2</span>
+                        <span class="tooltip">Auditing and implementing WCAG 2.2 guidelines at A, AA, and AAA levels.</span>
+                    </li>
+                    <li class="skill-item" data-tooltip="Using ARIA roles and attributes to make complex web components accessible.">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span>ARIA Implementation</span>
+                        <span class="tooltip">Using ARIA roles and attributes to make complex web components accessible.</span>
+                    </li>
+                    <li class="skill-item" data-tooltip="Manual testing with screen readers like NVDA to ensure real-world usability.">
+                        <i class="fas fa-desktop"></i>
+                        <span>NVDA Testing</span>
+                        <span class="tooltip">Manual testing with screen readers like NVDA to ensure real-world usability.</span>
+                    </li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="experience" id="experience-section"> <h2>Experience</h2>
-            <p>
-                <strong>SEO Intern</strong> - 5 months of hands-on experience in optimizing websites for search engines, conducting keyword research, and improving organic search rankings.
-            </p>
-        </div>
-
-        <div class="projects" id="projects-section"> <h2>My Projects</h2>
-            <div class="project-item">
-                <h3>Portfolio Website</h3>
-                <p>Designed and developed this personal portfolio website to showcase my skills, experience, and projects. Focused on a clean, responsive design with subtle animations.</p>
-                <a href="#" target="_blank" class="project-link" aria-label="View Portfolio Website Project">View Details</a>
+        <section id="experience" class="content-section" aria-labelledby="experience-title">
+            <h2 class="section-title" id="experience-title">My Experience</h2>
+            <div class="timeline">
+                <article class="timeline-item" aria-labelledby="exp1-title">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jan 2024 - May 2024</span>
+                <h3 id="exp1-title">Applied SEO & Accessibility Projects</h3>
+                <p>
+    Gained hands-on experience by applying SEO strategies (on-page optimization, keyword research, technical SEO audits) and Web Accessibility principles (WCAG 2.2, ARIA, semantic HTML) to personal and simulated web projects. This practical application solidified my understanding and problem-solving skills in real-world scenarios.
+                </p>
+                    </div>
+                </article>
+                <article class="timeline-item" aria-labelledby="exp2-title">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020 - 2023</span>
+                        <h3 id="exp2-title">Accessibility Tutor</h3>
+                        <p>I trained two students in advanced Excel concepts from basic to advanced levels using the NVDA screen reader, focusing on accessible data manipulation and reporting techniques to increase their proficiency and employability.</p>
+                    </div>
+                </article>
             </div>
-            <div class="project-item">
-                <h3>E-commerce SEO Strategy</h3>
-                <p>Developed a comprehensive SEO strategy for a mock e-commerce client, including keyword research, on-page optimization, and content planning to improve organic visibility.</p>
-                <a href="#" target="_blank" class="project-link" aria-label="View E-commerce SEO Strategy Project">View Case Study</a>
-            </div>
-            <div class="project-item">
-                <h3>Digital Marketing Campaign Analysis</h3>
-                <p>Analyzed the performance of a sample digital marketing campaign using mock data, identifying key metrics, trends, and providing recommendations for future improvements.</p>
-                <a href="#" target="_blank" class="project-link" aria-label="View Campaign Analysis Project">Read Analysis</a>
-            </div>
-        </div>
+        </section>
 
-
-        <div class="download-resume" role="region" aria-label="Download Resume">
-            <a href="Dilip_Resume.pdf" download="Dilip_Pariyar_Resume.pdf">Download Resume</a>
-            </div>
-
-        <div class="footer" id="contact-section"> 
-            <p>Contact: dilippariyar06@gmail.com | Phone: +91 98765 43210</p>
-            <div class="social-icons" role="region" aria-label="social media links">
-                <a href="mailto:dilippariyar06@gmail.com" target="_blank" title="Email" aria-label="Send an email"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+919876543210" target="_blank" title="Phone" aria-label="Call Dilip Pariyar"><i class="fas fa-phone"></i></a>
-                <a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" title="LinkedIn" aria-label="Dilip Pariyar's LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.github.com/dilippariyar" target="_blank" title="GitHub" aria-label="Dilip Pariyar's GitHub Profile"><i class="fab fa-github"></i></a>
-                </div>
+        <section id="projects" class="content-section" aria-labelledby="projects-title">
+            <h2 class="section-title" id="projects-title">My Projects</h2>
+            <ul class="projects-list">
+<li class="project-card">
+    <img src="portfolio-seo-optimized.jpg" alt="Screenshot of a portfolio website with visible elements of SEO optimization, like a clean layout or code snippet." class="project-image">
+    <div class="project-content">
+        <h3>SEO-Optimized Portfolio Website</h3>
+        <p>Developed a personal portfolio website using Semantic HTML & CSS, optimized for on-page and technical SEO. Implemented meta tags, Open Graph, Twitter Cards, Schema markup for rich results, `robots.txt`, `sitemap.xml`, custom 404 page, and Google Search Console setup.</p>
+        <div class="project-links">
+            <a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#intro"><i class="fas fa-eye"></i> Live Demo</a>
         </div>
     </div>
+</li>
+<li class="project-card">
+    <img src="accessible-webpage-redesign.jpg" alt="Screenshot of an accessible web page redesign, showing clear navigation and readable content." class="project-image">
+    <div class="project-content">
+        <h3>Accessible Web Page Redesign</h3>
+        <p>Transformed an inaccessible web page into an accessible experience using Semantic HTML, ARIA attributes, and WCAG 2.2 guidelines. Focus on heading-based navigation and clear labels for enhanced usability.</p>
+        <div class="project-links">
+            <a href="#"><i class="fas fa-file-alt"></i> View Details</a>
+        </div>
+    </div>
+</li>
+            </ul>
+        </section>
+    </main>
 
+    <footer class="main-footer" id="contact-footer" role="contentinfo">
+        <h2 class="footer-title">Get In Touch</h2>
+        <ul class="social-icons" aria-label="Social media links">
+<li><a href="https://www.facebook.com/https://www.facebook.com/dilip.pariyar.5201" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a></li>
+<li><a href="https://www.instagram.com/_dilippariyar_" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a></li>
+<li><a href="https://twitter.com/dilippariyart" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile (X)"><i class="fa-brands fa-x-twitter"></i></a></li>
+<li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a></li>
+<li><a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a></li>
+<li><a href="tel:+911234567890" aria-label="Phone Number"><i class="fas fa-phone"></i></a></li>
+<li><a href="mailto:dilippariyar06@gmail.com" aria-label="Email Dilip Pariyar"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+        <p class="copyright">&copy; <span id="currentYear">2025</span> Dilip Pariyar. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="particles-config.js"></script>
     <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const menuLinks = document.getElementById('menu-links-main'); // Using ID selector
-
-        menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            menuLinks.classList.toggle('open');
-        });
-
-        // Close menu when a link is clicked
-        menuLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Check if the menu is open before trying to close it
-                if (menuLinks.classList.contains('open')) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    menuLinks.classList.remove('open');
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            function toggleMenu(forceClose = false) {
+                const isActive = mainNav.classList.contains('active');
+                if (forceClose || isActive) {
+                    navToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    navToggle.classList.add('active');
+                    mainNav.classList.add('active');
+                    navToggle.setAttribute('aria-expanded', 'true');
                 }
-            });
+            }
+
+            if (navToggle && mainNav) {
+                navToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+                        toggleMenu(true);
+                    }
+                });
+            }
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
     </script>
 </body>
