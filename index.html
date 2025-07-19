@@ -261,7 +261,7 @@
             <div id="particles-js"></div>
             <div class="intro-content">
                 <div class="profile-image-container">
-                    <img src="https://dilippariyar.github.io/RESUME/IMAGES/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
+                    <img src="https://dilippariyar.github.io/resume/images/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
                 </div>
                 <h1 id="main-heading">Dilip Pariyar</h1>
                 <p class="subtitle">Digital Marketing & Web Accessibility Professional</p>
@@ -397,23 +397,56 @@
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        // This is a sample particles.js configuration.
-        // You should create a separate particles-config.js file for your full configuration.
+        // Modern, attractive particles.js configuration
         if (document.getElementById('particles-js')) {
             particlesJS('particles-js', {
                 "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#ffffff" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.5, "random": false },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-                    "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+                    "number": {
+                        "value": 60,
+                        "density": { "enable": true, "value_area": 800 }
+                    },
+                    "color": { "value": ["#00e6ff", "#ff00cc"] },
+                    "shape": {
+                        "type": "circle",
+                    },
+                    "opacity": {
+                        "value": 0.8,
+                        "random": true,
+                        "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": { "enable": false }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": { "enable": false }
+                    }
                 },
                 "interactivity": {
                     "detect_on": "canvas",
-                    "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
-                    "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
+                    "events": {
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" }
+                    },
+                    "modes": {
+                        "grab": { "distance": 140, "line_opacity": 0.5 },
+                        "push": { "particles_nb": 4 }
+                    }
                 },
                 "retina_detect": true
             });
