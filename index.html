@@ -126,90 +126,116 @@
         }
 
         /* styling for  call now button */
-        /* Container for centering the buttons */
+/* --- CTA Section: Container for Centering --- */
 .cta-section {
-    text-align: center; /* Aligns inline-block elements (your buttons) to the center */
-    margin: 60px 0; /* Adds space above and below the CTA section */
+    text-align: center; /* Centers the inline-block buttons */
+    margin: 60px 0;    /* Adds space above and below the section */
 }
 
-/* Base styles for all CTA buttons */
+/* --- Base Styles for All CTA Buttons --- */
 .cta-button {
-    display: inline-block; /* Allows setting padding, width, and placing side-by-side */
-    padding: 16px 32px; /* Generous padding for a good size */
-    font-size: 1.15em; /* Slightly larger font */
-    font-weight: 600; /* Semi-bold text */
-    text-decoration: none; /* Removes underline */
-    border-radius: 50px; /* Makes the button pill-shaped for a modern look */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft, subtle shadow for depth */
-    margin: 0 15px; /* Space between multiple buttons */
+    display: inline-block; /* Allows side-by-side display on desktop */
+    padding: 16px 32px;    /* Generous padding for a good button size */
+    font-size: 1.15em;     /* Slightly larger font */
+    font-weight: 600;      /* Semi-bold text */
+    text-decoration: none; /* Removes underline from links */
+    border-radius: 50px;   /* Pill-shaped rounded corners */
+    transition: all 0.3s ease; /* Smooth transitions for hover/active effects */
+    cursor: pointer;       /* Indicates clickable element */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
     letter-spacing: 0.5px; /* Slightly spaced letters for clean look */
     text-transform: uppercase; /* Makes text uppercase */
+    /* margin: 0 15px; Removed for desktop to prevent extra margin when only one button visible */
 }
 
-/* Specific styles for the Call Me button */
+/* --- Icon Spacing within Buttons --- */
+.cta-button i {
+    margin-right: 8px; /* Space between icon and text */
+    vertical-align: middle; /* Ensures icon aligns well with text */
+}
+
+/* --- Desktop/Laptop Specific Styles (Default State) --- */
+
+/* By default, hide the Call Me button on desktop */
 .call-me-button {
-    background-color: #007bff; /* A vibrant blue, common for primary actions */
-    color: #ffffff; /* White text for contrast */
-    border: 2px solid #007bff; /* Matching border */
+    display: none;
 }
 
-/* Hover effect for Call Me button */
-.call-me-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    border-color: #0056b3;
-    transform: translateY(-3px); /* Lifts the button slightly */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
-}
-
-/* Active (click) state for Call Me button */
-.call-me-button:active {
-    background-color: #004085;
-    border-color: #004085;
-    transform: translateY(0); /* Returns to original position */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on click */
-}
-
-/* Optional: Specific styles for the Email Me button (if used) */
+/* By default, show and style the Email Me button for desktop */
 .email-me-button {
-    background-color: #6c757d; /* A neutral gray, secondary action */
-    color: #ffffff;
-    border: 2px solid #6c757d;
+    display: inline-block; /* Make sure it's visible */
+    background-color: #007bff; /* Primary blue for desktop CTA */
+    color: #ffffff;         /* White text */
+    border: 2px solid #007bff; /* Matching border */
+    /* No horizontal margin here as it will be the only button */
 }
 
-/* Hover effect for Email Me button */
+/* Hover effects for Email Me button */
 .email-me-button:hover {
-    background-color: #5a6268;
-    border-color: #5a6268;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    background-color: #0056b3; /* Darker blue */
+    border-color: #0056b3;
+    transform: translateY(-3px); /* Lifts the button */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
 }
 
 /* Active (click) state for Email Me button */
 .email-me-button:active {
-    background-color: #495057;
-    border-color: #495057;
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #004085;
+    border-color: #004085;
+    transform: translateY(0); /* Returns to original position */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Accessibility: Focus state for keyboard navigation */
-.cta-button:focus {
-    outline: 3px solid #0056b3; /* Clearly visible outline */
-    outline-offset: 4px; /* Space between outline and button border */
-}
-
-/* Media Query for smaller screens (optional, but good practice) */
+/* --- Mobile Specific Styles (using Media Query) --- */
 @media (max-width: 600px) {
-    .cta-button {
-        display: block; /* Stack buttons vertically on small screens */
-        margin: 15px auto; /* Center individual stacked buttons */
-        width: 80%; /* Make them wider */
-        max-width: 300px;
+    /* On mobile, hide the Email Me button */
+    .email-me-button {
+        display: none;
+    }
+
+    /* On mobile, show the Call Me button */
+    .call-me-button {
+        display: block;      /* Make it a block element to take full width */
+        margin: 15px auto;   /* Center it horizontally with vertical spacing */
+        width: 80%;          /* Make it fill most of the screen width */
+        max-width: 300px;    /* Prevent it from getting too wide on slightly larger mobiles */
+
+        /* Specific mobile button styling */
+        background-color: #28a745; /* A distinct green for mobile call-to-action */
+        color: #ffffff;
+        border: 2px solid #28a745;
+    }
+
+    /* Hover effects for Call Me button on mobile */
+    .call-me-button:hover {
+        background-color: #218838; /* Darker green */
+        border-color: #218838;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Active (click) state for Call Me button on mobile */
+    .call-me-button:active {
+        background-color: #1e7e34;
+        border-color: #1e7e34;
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 }
-    </style>
+
+/* --- Accessibility: Focus States --- */
+/* Ensures a clear outline for keyboard navigation, applies to whichever button is visible */
+.cta-button:focus {
+    outline: 3px solid #0056b3; /* Default focus color (matches desktop email button) */
+    outline-offset: 4px;        /* Space between outline and button border */
+}
+
+/* Adjust focus color for the mobile call button */
+@media (max-width: 600px) {
+    .cta-button:focus {
+        outline: 3px solid #218838; /* Green outline for mobile call button */
+    }
+}    </style>
 </head>
 <body>
     <header class="main-header" role="banner">
@@ -346,10 +372,10 @@
         <section aria-label="contact me right now">
             <div class="cta-section">
     <a href="tel:+911234567890" class="cta-button call-me-button">
-        Call Me
+        <i class="fas fa-phone"></i> Call Me
     </a>
     <a href="mailto:dilippariyar06@gmail.com" class="cta-button email-me-button">
-        Email Me
+        <i class="fas fa-envelope"></i> Email Me
     </a>
 </div>
         </section>
