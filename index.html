@@ -13,11 +13,14 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <!-- Open Graph & Twitter Cards -->
+    <!--
     <meta property="og:title" content="Dilip Pariyar - Digital Marketing & Web Accessibility Resume">
     <meta property="og:description" content="My professional resume showcasing skills in Digital Marketing, Web Accessibility, SEO, and more.">
+    -->
     <meta property="og:image" content="https://dilippariyar.github.io/resume/images/logo_og.png">
+    <!--
     <meta name="twitter:card" content="summary_large_image">
-
+-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -121,6 +124,91 @@
             .timeline-item:nth-child(even) { left: 0; }
             .timeline-item::after { left: 18px; }
         }
+
+        /* styling for  call now button */
+        /* Container for centering the buttons */
+.cta-section {
+    text-align: center; /* Aligns inline-block elements (your buttons) to the center */
+    margin: 60px 0; /* Adds space above and below the CTA section */
+}
+
+/* Base styles for all CTA buttons */
+.cta-button {
+    display: inline-block; /* Allows setting padding, width, and placing side-by-side */
+    padding: 16px 32px; /* Generous padding for a good size */
+    font-size: 1.15em; /* Slightly larger font */
+    font-weight: 600; /* Semi-bold text */
+    text-decoration: none; /* Removes underline */
+    border-radius: 50px; /* Makes the button pill-shaped for a modern look */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft, subtle shadow for depth */
+    margin: 0 15px; /* Space between multiple buttons */
+    letter-spacing: 0.5px; /* Slightly spaced letters for clean look */
+    text-transform: uppercase; /* Makes text uppercase */
+}
+
+/* Specific styles for the Call Me button */
+.call-me-button {
+    background-color: #007bff; /* A vibrant blue, common for primary actions */
+    color: #ffffff; /* White text for contrast */
+    border: 2px solid #007bff; /* Matching border */
+}
+
+/* Hover effect for Call Me button */
+.call-me-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+    transform: translateY(-3px); /* Lifts the button slightly */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
+}
+
+/* Active (click) state for Call Me button */
+.call-me-button:active {
+    background-color: #004085;
+    border-color: #004085;
+    transform: translateY(0); /* Returns to original position */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on click */
+}
+
+/* Optional: Specific styles for the Email Me button (if used) */
+.email-me-button {
+    background-color: #6c757d; /* A neutral gray, secondary action */
+    color: #ffffff;
+    border: 2px solid #6c757d;
+}
+
+/* Hover effect for Email Me button */
+.email-me-button:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Active (click) state for Email Me button */
+.email-me-button:active {
+    background-color: #495057;
+    border-color: #495057;
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Accessibility: Focus state for keyboard navigation */
+.cta-button:focus {
+    outline: 3px solid #0056b3; /* Clearly visible outline */
+    outline-offset: 4px; /* Space between outline and button border */
+}
+
+/* Media Query for smaller screens (optional, but good practice) */
+@media (max-width: 600px) {
+    .cta-button {
+        display: block; /* Stack buttons vertically on small screens */
+        margin: 15px auto; /* Center individual stacked buttons */
+        width: 80%; /* Make them wider */
+        max-width: 300px;
+    }
+}
     </style>
 </head>
 <body>
@@ -253,6 +341,17 @@
     </div>
 </li>
             </ul>
+        </section>
+
+        <section aria-label="contact me right now">
+            <div class="cta-section">
+    <a href="tel:+911234567890" class="cta-button call-me-button">
+        Call Me
+    </a>
+    <a href="mailto:dilippariyar06@gmail.com" class="cta-button email-me-button">
+        Email Me
+    </a>
+</div>
         </section>
     </main>
 
