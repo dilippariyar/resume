@@ -21,7 +21,7 @@
     <!--
     <meta name="twitter:card" content="summary_large_image">
 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -32,22 +32,10 @@
         body { font-family: 'Poppins', sans-serif; background: #0d0d1a; color: #fff; line-height: 1.6; overflow-x: hidden; }
         .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-        /* Header & Navigation */
+        /* Header */
         .main-header { position: fixed; top: 0; width: 100%; background: rgba(13, 13, 26, 0.85); backdrop-filter: blur(10px); padding: 15px 25px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
-        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; z-index: 1002; position: relative; width: 30px; height: 30px; }
-        .nav-toggle .fa-bars, .nav-toggle .fa-times { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
-        .nav-toggle .fa-times { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
-        .nav-toggle.active .fa-bars { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
-        .nav-toggle.active .fa-times { opacity: 1; transform: translate(-50%, -50%) rotate(0); }
         
-        .main-nav { display: flex; }
-        .main-nav ul { list-style: none; display: flex; gap: 30px; }
-        .main-nav ul li a { color: #fff; text-decoration: none; font-size: 1rem; text-transform: uppercase; padding: 5px 0; position: relative; }
-        .main-nav ul li a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #00e6ff; transition: width 0.3s ease; }
-        .main-nav ul li a:hover::after, .main-nav ul li a.active::after { width: 100%; }
-        .main-nav ul li a:hover, .main-nav ul li a.active { color: #00e6ff; }
-
         /* Hero Section */
         #intro { min-height: 100vh; padding-top: 100px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
         #particles-js { position: absolute; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
@@ -56,8 +44,40 @@
         .profile-image-container img { width: 280px; height: 280px; border-radius: 50%; border: 8px solid #00e6ff; box-shadow: 0 0 35px rgba(0, 230, 255, 0.7); object-fit: cover; }
         #intro h1 { font-size: 4rem; font-weight: 700; background: linear-gradient(45deg, #00e6ff, #ff00cc); -webkit-background-clip: text; background-clip: text; color: transparent; }
         #intro .subtitle { font-size: 1.4rem; color: #d1d1d1; margin: 15px 0 30px; }
-        .cta-button { display: inline-block; padding: 14px 35px; color: #0d0d1a; background: #00e6ff; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; }
-        .cta-button:hover { background: #fff; transform: scale(1.1); box-shadow: 0 0 20px rgba(0, 230, 255, 0.5); }
+        
+        /* New Download Resume Button Style */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #00e6ff, #ff00cc);
+            background-size: 200% 200%;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        .cta-button:hover {
+            color: #fff;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 230, 255, 0.4), 0 12px 25px rgba(255, 0, 204, 0.4);
+            background-position: right center;
+        }
+        .cta-button:active {
+            transform: translateY(0) scale(1);
+        }
 
         /* General Section Styles */
         .content-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
@@ -114,10 +134,6 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .main-header { padding: 15px 20px; }
-            .nav-toggle { display: block; }
-            .main-nav { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(18, 18, 31, 0.98); flex-direction: column; justify-content: center; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
-            .main-nav.active { right: 0; }
-            .main-nav ul { flex-direction: column; }
             #intro h1 { font-size: 2.8rem; }
             .timeline::before { left: 30px; }
             .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
@@ -125,130 +141,119 @@
             .timeline-item::after { left: 18px; }
         }
 
-        /* styling for  call now button */
-/* --- CTA Section: Container for Centering --- */
-.cta-section {
-    text-align: center; /* Centers the inline-block buttons */
-    margin: 60px 0;    /* Adds space above and below the section */
-}
+        /* --- CTA Section: Container for Centering --- */
+        .cta-section {
+            text-align: center; /* Centers the inline-block buttons */
+            margin: 60px 0;    /* Adds space above and below the section */
+        }
 
-/* --- Base Styles for All CTA Buttons --- */
-.cta-button {
-    display: inline-block; /* Allows side-by-side display on desktop */
-    padding: 16px 32px;    /* Generous padding for a good button size */
-    font-size: 1.15em;     /* Slightly larger font */
-    font-weight: 600;      /* Semi-bold text */
-    text-decoration: none; /* Removes underline from links */
-    border-radius: 50px;   /* Pill-shaped rounded corners */
-    transition: all 0.3s ease; /* Smooth transitions for hover/active effects */
-    cursor: pointer;       /* Indicates clickable element */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
-    letter-spacing: 0.5px; /* Slightly spaced letters for clean look */
-    text-transform: uppercase; /* Makes text uppercase */
-    /* margin: 0 15px; Removed for desktop to prevent extra margin when only one button visible */
-}
+        /* --- Base Styles for All CTA Buttons --- */
+        .contact-cta-button { /* Renamed to avoid conflict */
+            display: inline-block; /* Allows side-by-side display on desktop */
+            padding: 16px 32px;    /* Generous padding for a good button size */
+            font-size: 1.15em;     /* Slightly larger font */
+            font-weight: 600;      /* Semi-bold text */
+            text-decoration: none; /* Removes underline from links */
+            border-radius: 50px;   /* Pill-shaped rounded corners */
+            transition: all 0.3s ease; /* Smooth transitions for hover/active effects */
+            cursor: pointer;       /* Indicates clickable element */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+            letter-spacing: 0.5px; /* Slightly spaced letters for clean look */
+            text-transform: uppercase; /* Makes text uppercase */
+        }
 
-/* --- Icon Spacing within Buttons --- */
-.cta-button i {
-    margin-right: 8px; /* Space between icon and text */
-    vertical-align: middle; /* Ensures icon aligns well with text */
-}
+        /* --- Icon Spacing within Buttons --- */
+        .contact-cta-button i {
+            margin-right: 8px; /* Space between icon and text */
+            vertical-align: middle; /* Ensures icon aligns well with text */
+        }
 
-/* --- Desktop/Laptop Specific Styles (Default State) --- */
+        /* --- Desktop/Laptop Specific Styles (Default State) --- */
 
-/* By default, hide the Call Me button on desktop */
-.call-me-button {
-    display: none;
-}
+        /* By default, hide the Call Me button on desktop */
+        .call-me-button {
+            display: none;
+        }
 
-/* By default, show and style the Email Me button for desktop */
-.email-me-button {
-    display: inline-block; /* Make sure it's visible */
-    background-color: #007bff; /* Primary blue for desktop CTA */
-    color: #ffffff;         /* White text */
-    border: 2px solid #007bff; /* Matching border */
-    /* No horizontal margin here as it will be the only button */
-}
+        /* By default, show and style the Email Me button for desktop */
+        .email-me-button {
+            display: inline-block; /* Make sure it's visible */
+            background-color: #007bff; /* Primary blue for desktop CTA */
+            color: #ffffff;       /* White text */
+            border: 2px solid #007bff; /* Matching border */
+        }
 
-/* Hover effects for Email Me button */
-.email-me-button:hover {
-    background-color: #0056b3; /* Darker blue */
-    border-color: #0056b3;
-    transform: translateY(-3px); /* Lifts the button */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
-}
+        /* Hover effects for Email Me button */
+        .email-me-button:hover {
+            background-color: #0056b3; /* Darker blue */
+            border-color: #0056b3;
+            transform: translateY(-3px); /* Lifts the button */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
+        }
 
-/* Active (click) state for Email Me button */
-.email-me-button:active {
-    background-color: #004085;
-    border-color: #004085;
-    transform: translateY(0); /* Returns to original position */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
+        /* Active (click) state for Email Me button */
+        .email-me-button:active {
+            background-color: #004085;
+            border-color: #004085;
+            transform: translateY(0); /* Returns to original position */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
 
-/* --- Mobile Specific Styles (using Media Query) --- */
-@media (max-width: 600px) {
-    /* On mobile, hide the Email Me button */
-    .email-me-button {
-        display: none;
-    }
+        /* --- Mobile Specific Styles (using Media Query) --- */
+        @media (max-width: 600px) {
+            /* On mobile, hide the Email Me button */
+            .email-me-button {
+                display: none;
+            }
 
-    /* On mobile, show the Call Me button */
-    .call-me-button {
-        display: block;      /* Make it a block element to take full width */
-        margin: 15px auto;   /* Center it horizontally with vertical spacing */
-        width: 80%;          /* Make it fill most of the screen width */
-        max-width: 300px;    /* Prevent it from getting too wide on slightly larger mobiles */
+            /* On mobile, show the Call Me button */
+            .call-me-button {
+                display: block;      /* Make it a block element to take full width */
+                margin: 15px auto;   /* Center it horizontally with vertical spacing */
+                width: 80%;          /* Make it fill most of the screen width */
+                max-width: 300px;    /* Prevent it from getting too wide on slightly larger mobiles */
 
-        /* Specific mobile button styling */
-        background-color: #28a745; /* A distinct green for mobile call-to-action */
-        color: #ffffff;
-        border: 2px solid #28a745;
-    }
+                /* Specific mobile button styling */
+                background-color: #28a745; /* A distinct green for mobile call-to-action */
+                color: #ffffff;
+                border: 2px solid #28a745;
+            }
 
-    /* Hover effects for Call Me button on mobile */
-    .call-me-button:hover {
-        background-color: #218838; /* Darker green */
-        border-color: #218838;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    }
+            /* Hover effects for Call Me button on mobile */
+            .call-me-button:hover {
+                background-color: #218838; /* Darker green */
+                border-color: #218838;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            }
 
-    /* Active (click) state for Call Me button on mobile */
-    .call-me-button:active {
-        background-color: #1e7e34;
-        border-color: #1e7e34;
-        transform: translateY(0);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-}
+            /* Active (click) state for Call Me button on mobile */
+            .call-me-button:active {
+                background-color: #1e7e34;
+                border-color: #1e7e34;
+                transform: translateY(0);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+        }
 
-/* --- Accessibility: Focus States --- */
-/* Ensures a clear outline for keyboard navigation, applies to whichever button is visible */
-.cta-button:focus {
-    outline: 3px solid #0056b3; /* Default focus color (matches desktop email button) */
-    outline-offset: 4px;        /* Space between outline and button border */
-}
+        /* --- Accessibility: Focus States --- */
+        /* Ensures a clear outline for keyboard navigation, applies to whichever button is visible */
+        .contact-cta-button:focus {
+            outline: 3px solid #0056b3; /* Default focus color (matches desktop email button) */
+            outline-offset: 4px;       /* Space between outline and button border */
+        }
 
-/* Adjust focus color for the mobile call button */
-@media (max-width: 600px) {
-    .cta-button:focus {
-        outline: 3px solid #218838; /* Green outline for mobile call button */
-    }
-}    </style>
+        /* Adjust focus color for the mobile call button */
+        @media (max-width: 600px) {
+            .contact-cta-button:focus {
+                outline: 3px solid #218838; /* Green outline for mobile call button */
+            }
+        }    
+    </style>
 </head>
 <body>
     <header class="main-header" role="banner">
         <a href="#intro" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
-        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-times"></i>
-        </button>
-        <nav class="main-nav" id="mainNav">
-            <ul>
-                <li><a href="#intro" class="active">Home</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main role="main">
@@ -260,7 +265,9 @@
                 </div>
                 <h1 id="main-heading">Dilip Pariyar</h1>
                 <p class="subtitle">Digital Marketing & Web Accessibility Professional</p>
-                <a href="#projects" class="cta-button">View My Work</a>
+                <a href="Dilip_Pariyar_Resume.pdf" class="cta-button" download="Dilip_Pariyar_Resume.pdf">
+                    <i class="fas fa-download"></i> Download Resume
+                </a>
             </div>
         </section>
 
@@ -366,10 +373,10 @@
 
         <section aria-label="contact me right now">
             <div class="cta-section">
-    <a href="tel:+911234567890" class="cta-button call-me-button">
+    <a href="tel:+911234567890" class="contact-cta-button call-me-button">
         <i class="fas fa-phone"></i> Call Me
     </a>
-    <a href="mailto:dilippariyar06@gmail.com" class="cta-button email-me-button">
+    <a href="mailto:dilippariyar06@gmail.com" class="contact-cta-button email-me-button">
         <i class="fas fa-envelope"></i> Email Me
     </a>
 </div>
@@ -389,38 +396,30 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="particles-config.js"></script>
     <script>
+        // This is a sample particles.js configuration.
+        // You should create a separate particles-config.js file for your full configuration.
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#ffffff" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": false },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                    "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
+                    "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
+                },
+                "retina_detect": true
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            const navToggle = document.querySelector('.nav-toggle');
-            const mainNav = document.querySelector('.main-nav');
-            
-            function toggleMenu(forceClose = false) {
-                const isActive = mainNav.classList.contains('active');
-                if (forceClose || isActive) {
-                    navToggle.classList.remove('active');
-                    mainNav.classList.remove('active');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                } else {
-                    navToggle.classList.add('active');
-                    mainNav.classList.add('active');
-                    navToggle.setAttribute('aria-expanded', 'true');
-                }
-            }
-
-            if (navToggle && mainNav) {
-                navToggle.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    toggleMenu();
-                });
-                
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
-                        toggleMenu(true);
-                    }
-                });
-            }
-
             document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
     </script>
