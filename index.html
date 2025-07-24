@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilip Pariyar - Resume </title>
     
+expert. Explore my projects, skills, and experience.">
+India, Google Analytics, SEM, content marketing, social media marketing, freelancer">
+    <meta name="author" content="Dilip Pariyar">
     <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://dilippariyar.github.io/resume">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <!-- Open Graph & Twitter Cards -->
-        <meta property="og:title" content="Dilip Pariyar - Digital Marketing & Web Accessibility Resume">
+    <meta property="og:title" content="Dilip Pariyar - Digital Marketing & Web Accessibility Resume">
     <meta property="og:description" content="My resume showcasing skills in Digital Marketing, Web Accessibility, SEO, and more.">
-
     <meta property="og:image" content="https://dilippariyar.github.io/resume/images/dilip.jpg">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -105,6 +107,84 @@
         .timeline-date { font-size: 0.9rem; color: #888; margin-bottom: 10px; display: block; }
         .timeline-content p { font-size: 0.95rem; color: #b0b0b0; }
 
+        /* Education Section Styles */
+        .education-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+        }
+        .education-item h3 {
+            font-size: 1.6rem;
+            color: #00e6ff;
+            margin-bottom: 10px;
+        }
+        .education-item .institution {
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            font-weight: 600;
+        }
+        .education-item .details {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-top: 15px;
+        }
+        .education-item .cgpa {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Certification Section Styles (New Card Layout) */
+        .certifications-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .certification-card {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 230, 255, 0.2);
+        }
+        .certification-card img {
+            width: 200px; /* Predefined width */
+            height: 200px; /* Predefined height */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #334; /* Placeholder background */
+        }
+        .certification-card h3 {
+            font-size: 1.4rem;
+            color: #00e6ff;
+            margin-bottom: 10px;
+        }
+        .certification-card .issuer {
+            font-size: 1rem;
+            color: #d1d1d1;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .certification-card .details {
+            font-size: 0.95rem;
+            color: #b0b0b0;
+        }
+
+
         /* Projects Section */
         .projects-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0; }
         .project-card { background: rgba(255, 255, 255, 0.07); border-radius: 15px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -129,6 +209,7 @@
         @media (max-width: 768px) {
             .main-header { padding: 15px 20px; }
             #intro h1 { font-size: 2.8rem; }
+            .profile-image-container img { width: 220px; height: 220px; }
             .timeline::before { left: 30px; }
             .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
             .timeline-item:nth-child(even) { left: 0; }
@@ -136,113 +217,21 @@
         }
 
         /* --- CTA Section: Container for Centering --- */
-        .cta-section {
-            text-align: center; /* Centers the inline-block buttons */
-            margin: 60px 0;    /* Adds space above and below the section */
-        }
-
-        /* --- Base Styles for All CTA Buttons --- */
-        .contact-cta-button { /* Renamed to avoid conflict */
-            display: inline-block; /* Allows side-by-side display on desktop */
-            padding: 16px 32px;    /* Generous padding for a good button size */
-            font-size: 1.15em;     /* Slightly larger font */
-            font-weight: 600;      /* Semi-bold text */
-            text-decoration: none; /* Removes underline from links */
-            border-radius: 50px;   /* Pill-shaped rounded corners */
-            transition: all 0.3s ease; /* Smooth transitions for hover/active effects */
-            cursor: pointer;       /* Indicates clickable element */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
-            letter-spacing: 0.5px; /* Slightly spaced letters for clean look */
-            text-transform: uppercase; /* Makes text uppercase */
-        }
-
-        /* --- Icon Spacing within Buttons --- */
-        .contact-cta-button i {
-            margin-right: 8px; /* Space between icon and text */
-            vertical-align: middle; /* Ensures icon aligns well with text */
-        }
-
-        /* --- Desktop/Laptop Specific Styles (Default State) --- */
-
-        /* By default, hide the Call Me button on desktop */
-        .call-me-button {
-            display: none;
-        }
-
-        /* By default, show and style the Email Me button for desktop */
-        .email-me-button {
-            display: inline-block; /* Make sure it's visible */
-            background-color: #007bff; /* Primary blue for desktop CTA */
-            color: #ffffff;       /* White text */
-            border: 2px solid #007bff; /* Matching border */
-        }
-
-        /* Hover effects for Email Me button */
-        .email-me-button:hover {
-            background-color: #0056b3; /* Darker blue */
-            border-color: #0056b3;
-            transform: translateY(-3px); /* Lifts the button */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
-        }
-
-        /* Active (click) state for Email Me button */
-        .email-me-button:active {
-            background-color: #004085;
-            border-color: #004085;
-            transform: translateY(0); /* Returns to original position */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        }
-
-        /* --- Mobile Specific Styles (using Media Query) --- */
+        .cta-section { text-align: center; margin: 60px 0; }
+        .contact-cta-button { display: inline-block; padding: 16px 32px; font-size: 1.15em; font-weight: 600; text-decoration: none; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); letter-spacing: 0.5px; text-transform: uppercase; }
+        .contact-cta-button i { margin-right: 8px; vertical-align: middle; }
+        .call-me-button { display: none; }
+        .email-me-button { display: inline-block; background-color: #007bff; color: #ffffff; border: 2px solid #007bff; }
+        .email-me-button:hover { background-color: #0056b3; border-color: #0056b3; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
+        .email-me-button:active { background-color: #004085; border-color: #004085; transform: translateY(0); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
         @media (max-width: 600px) {
-            /* On mobile, hide the Email Me button */
-            .email-me-button {
-                display: none;
-            }
-
-            /* On mobile, show the Call Me button */
-            .call-me-button {
-                display: block;      /* Make it a block element to take full width */
-                margin: 15px auto;   /* Center it horizontally with vertical spacing */
-                width: 80%;          /* Make it fill most of the screen width */
-                max-width: 300px;    /* Prevent it from getting too wide on slightly larger mobiles */
-
-                /* Specific mobile button styling */
-                background-color: #28a745; /* A distinct green for mobile call-to-action */
-                color: #ffffff;
-                border: 2px solid #28a745;
-            }
-
-            /* Hover effects for Call Me button on mobile */
-            .call-me-button:hover {
-                background-color: #218838; /* Darker green */
-                border-color: #218838;
-                transform: translateY(-3px);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            }
-
-            /* Active (click) state for Call Me button on mobile */
-            .call-me-button:active {
-                background-color: #1e7e34;
-                border-color: #1e7e34;
-                transform: translateY(0);
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
+            .email-me-button { display: none; }
+            .call-me-button { display: block; margin: 15px auto; width: 80%; max-width: 300px; background-color: #28a745; color: #ffffff; border: 2px solid #28a745; }
+            .call-me-button:hover { background-color: #218838; border-color: #218838; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
+            .call-me-button:active { background-color: #1e7e34; border-color: #1e7e34; transform: translateY(0); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
         }
-
-        /* --- Accessibility: Focus States --- */
-        /* Ensures a clear outline for keyboard navigation, applies to whichever button is visible */
-        .contact-cta-button:focus {
-            outline: 3px solid #0056b3; /* Default focus color (matches desktop email button) */
-            outline-offset: 4px;       /* Space between outline and button border */
-        }
-
-        /* Adjust focus color for the mobile call button */
-        @media (max-width: 600px) {
-            .contact-cta-button:focus {
-                outline: 3px solid #218838; /* Green outline for mobile call button */
-            }
-        }    
+        .contact-cta-button:focus { outline: 3px solid #0056b3; outline-offset: 4px; }
+        @media (max-width: 600px) { .contact-cta-button:focus { outline: 3px solid #218838; } }    
     </style>
 </head>
 <body>
@@ -255,7 +244,7 @@
             <div id="particles-js"></div>
             <div class="intro-content">
                 <div class="profile-image-container">
-                    <img src="https://dilippariyar.github.io/resume/images/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
+                    <img src="https://dilippariyar.github.io/RESUME/IMAGES/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
                 </div>
                 <h1 id="main-heading">Dilip Pariyar</h1>
                 <p class="subtitle">Digital Marketing & Web Accessibility Professional</p>
@@ -338,11 +327,47 @@
             </div>
         </section>
 
+        <!-- Education Section (New) -->
+        <section id="education" class="content-section" aria-labelledby="education-title">
+            <h2 class="section-title" id="education-title">Education</h2>
+            <article class="education-item" aria-labelledby="degree-title">
+                <h3 id="degree-title">Bachelor of Management Studies (BMS) in Marketing</h3>
+                <p class="institution">Shanker Narayan College of Arts & Commerce, Mumbai University</p>
+                <p class="details">2020 - 2023</p>
+                <p class="cgpa">CGPA: 8.59</p>
+            </article>
+        </section>
+
+        <!-- Certification Section (New Layout) -->
+        <section id="certifications" class="content-section" aria-labelledby="certifications-title">
+            <h2 class="section-title" id="certifications-title">Certifications</h2>
+            <ul class="certifications-list">
+                <li class="certification-card">
+                    <img src="accessibility-certificate-placeholder.png" alt="Placeholder image for Digital Accessibility Training certificate." width="200" height="200" hidden>
+                    <h3>Digital Accessibility Training</h3>
+                    <p class="issuer">Vision Aid</p>
+                    <p class="details">
+                        Completed comprehensive training covering web accessibility testing, including WCAG 2.2 guidelines, ARIA implementation, and practical application of Semantic HTML.
+                    </p>
+                </li>
+                
+                <!-- To hide this certification, add the 'hidden' attribute to this <li> tag -->
+                <li class="certification-card">
+                    <img src="seo-certificate-placeholder.png" alt="Placeholder image for SEO Fundamental certificate." width="200" height="200" hidden>
+                    <h3>Search Engine Optimization (SEO) Fundamental</h3>
+                    <p class="issuer">Self-Paced / Online Coursework</p>
+                    <p class="details">
+                        Learned the core principles of SEO, including on-page, off-page, and technical strategies to improve website visibility and search engine ranking.
+                    </p>
+                </li>
+            </ul>
+        </section>
+
         <section id="projects" class="content-section" aria-labelledby="projects-title">
             <h2 class="section-title" id="projects-title">My Projects</h2>
             <ul class="projects-list">
 <li class="project-card">
-    <img src="portfolio-seo-optimized.jpg" alt="Screenshot of a portfolio website with visible elements of SEO optimization, like a clean layout or code snippet." class="project-image">
+    <img src="portfolio-seo-optimized.jpg" alt="Screenshot of a portfolio website with visible elements of SEO optimization, like a clean layout or code snippet." class="project-image" hidden>
     <div class="project-content">
         <h3>SEO-Optimized Portfolio Website</h3>
         <p>Developed a personal portfolio website using Semantic HTML & CSS, optimized for on-page and technical SEO. Implemented meta tags, Open Graph, Twitter Cards, Schema markup for rich results, `robots.txt`, `sitemap.xml`, custom 404 page, and Google Search Console setup.</p>
@@ -353,7 +378,7 @@
     </div>
 </li>
 <li class="project-card">
-    <img src="accessible-webpage-redesign.jpg" alt="Screenshot of an accessible web page redesign, showing clear navigation and readable content." class="project-image">
+    <img src="accessible-webpage-redesign.jpg" alt="Screenshot of an accessible web page redesign, showing clear navigation and readable content." class="project-image" hidden> 
     <div class="project-content">
         <h3>Accessible Web Page Redesign</h3>
         <p>Transformed an inaccessible web page into an accessible experience using Semantic HTML, ARIA attributes, and WCAG 2.2 guidelines. Focus on heading-based navigation and clear labels for enhanced usability.</p>
@@ -365,15 +390,16 @@
             </ul>
         </section>
 
-        <section aria-label="contact me right now">
+        <section aria-labelledby="contact-cta-heading">
+            <h2 id="contact-cta-heading" class="visually-hidden" hidden>Contact Me</h2>
             <div class="cta-section">
-    <a href="tel:+918657213745" class="contact-cta-button call-me-button">
-        <i class="fas fa-phone"></i> Call Me
-    </a>
-    <a href="mailto:dilippariyar06@gmail.com" class="contact-cta-button email-me-button">
-        <i class="fas fa-envelope"></i> Email Me
-    </a>
-</div>
+                <a href="tel:+918657213745" class="contact-cta-button call-me-button">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Call Me
+                </a>
+                <a href="mailto:dilippariyar06@gmail.com" class="contact-cta-button email-me-button">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Email Me
+                </a>
+            </div>
         </section>
     </main>
 
@@ -385,7 +411,7 @@
 <li><a href="https://twitter.com/dilippariyart" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile (X)"><i class="fa-brands fa-x-twitter"></i></a></li>
 <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a></li>
 <li><a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a></li>
-        </ul>
+        </ul><button class="visually-hidden">jump to top</button>
         <p class="copyright">&copy; <span id="currentYear">2025</span> Dilip Pariyar. All rights reserved.</p>
     </footer>
 
